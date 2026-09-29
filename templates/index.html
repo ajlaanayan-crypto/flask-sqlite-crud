@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Roles</title>
+</head>
+
+<body>
+    <h1>available roles</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="role_name" placeholder="Enter Role Name" required>
+        <button type="submit">Add Role</button>
+    </form>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>sr. No</th>
+                <th>Role Name</th>
+                <th>Options</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for role in roles %}
+            <tr>
+                <td>{{ role.id }}</td>
+                <td>{{ role.role_name }}</td>
+                <td>
+                    <a href="/edit/{{ role.id }}">Edit</a>
+                    <a href="/delete/{{ role.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
